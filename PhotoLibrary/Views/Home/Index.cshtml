@@ -19,12 +19,11 @@
         $('#sortAlbums').on('change', function () {
             var id = $(this).children(":selected").val();
             if(id != 0){
-                $("tr").not("." + id).not(".header").hide()
-                $("." + id).show()
-                console.log(id)
+                $("tr").not("." + id).not(".header").hide() //gömmer alla albums med fel albumId
+                $("." + id).show() //visar alla albums med rätt albumId
             }
             else{
-                $("tr").show()
+                $("tr").show() //om inget är vald så visar det all resultat
             }
         });
         

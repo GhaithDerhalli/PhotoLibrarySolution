@@ -9,7 +9,6 @@ namespace PhotoLibrary.Models
     {
         public HashSet<int> albumIds { get; set; }
         public List<Album> albums { get; set; }
-        //public IEnumerable<SelectListItem> filteredAlbums { get; set; }
 
     }
 }
