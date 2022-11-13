@@ -1,0 +1,66 @@
+﻿@model PhotoLibrary.Models.AlbumVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-black">
+    <div class="mb-10">
+    <label class="text-white">Filter by album ID</label>
+    <select id="sortAlbums">
+    
+    <option value="0"></option>
+    @foreach (var item in Model.albumIds)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    </div>
+    <script>
+        $('#sortAlbums').on('change', function () {
+            var id = $(this).children(":selected").val();
+            if(id != 0){
+                $("tr").not("." + id).not(".header").hide()
+                $("." + id).show()
+                console.log(id)
+            }
+            else{
+                $("tr").show()
+            }
+        });
+        
+        
+    </script>
+</div>
+<div>
+<table class="w-full">
+    <thead>
+        <tr class="flex justify-between text-white mb-10 header">
+            <th>
+                Id
+            </th>
+                <th class="flex justify-start ">
+                Title
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model.albums) {
+                <tr class="flex justify-between text-white border-b-2 mb-10 @item.UserId">
+           
+            <td >
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td class="flex justify-start ">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td  class="text-blue-500">
+                        @Html.ActionLink("Images",null, $"Details{item.UserId}")
+            </td>
+        </tr>
+        
+}
+    </tbody>
+</table>
+</div>
