@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<PhotoServices>();
+builder.Services.AddSingleton<PhotoServices>();//snabbare än tranzient, så man behöver inte skapa om det varje gång 
+//builder.Services.AddTransient<PhotoServices>();// skapar en ny varje gång 
 
 var app = builder.Build();
 
