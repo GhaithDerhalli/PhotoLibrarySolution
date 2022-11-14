@@ -7,7 +7,7 @@
     <div class="mb-10">
     <label class="text-white">Filter by album ID</label>
     <select id="sortAlbums">
-            @*@Html.ListBoxFor(model => model.albumIds, new SelectList(Model.albumIds), new {style= "width:200px; text-black"})*@ @*ifall man vill behålla sorteringen i backend@
+            @*@Html.ListBoxFor(model => model.albumIds, new SelectList(Model.albumIds), new {style= "width:200px; text-black"})*@ @*ifall man vill behålla sorteringen i backend*@
     <option value="0"></option>
     @foreach (var item in Model.albumIds)
         {
